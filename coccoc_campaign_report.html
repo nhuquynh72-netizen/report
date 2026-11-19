@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Báo Cáo Chiến Dịch Cốc Cốc Ads — Mộc Nguyên Coffee Roasters</title>
+  <style>
+    :root {
+      --cc-green: #00B14F;
+      --cc-green-dark: #008B3D;
+      --cc-green-light: #E6F7ED;
+      --cc-green-soft: #F0FDF4;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748B;
+      --slate-400: #94A3B8;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --bg-page: #F4F7F6;
+      --white: #FFFFFF;
+      --blue-500: #3B82F6;
+      --blue-100: #DBEAFE;
+      --amber-500: #F59E0B;
+      --amber-100: #FEF3C7;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.07);
+      --shadow-lg: 0 12px 28px rgba(15, 23, 42, 0.12);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background-color: var(--bg-page);
+      color: var(--slate-800);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 28px 20px 56px;
+    }
+
+    /* Top Header Banner */
+    .report-header {
+      background: linear-gradient(135deg, #064E3B 0%, #008B3D 55%, #00B14F 100%);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 32px 36px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .report-header::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.18s ease;
+    }
+
+    .btn-light {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-light:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--cc-green-dark);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    }
+
+    .header-main h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 6px;
+    }
+
+    .header-subtitle {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.92);
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .meta-item strong {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--slate-600);
+      margin-right: 4px;
+    }
+
+    .pill-btn {
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-100);
+      color: var(--slate-700);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .pill-btn:hover {
+      border-color: var(--cc-green);
+      color: var(--cc-green-dark);
+    }
+
+    .pill-btn.active {
+      background: var(--cc-green);
+      color: var(--white);
+      border-color: var(--cc-green);
+      box-shadow: 0 2px 6px rgba(0, 177, 79, 0.28);
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--cc-green);
+    }
+
+    .kpi-card.blue::before { background: var(--blue-500); }
+    .kpi-card.amber::before { background: var(--amber-500); }
+    .kpi-card.emerald::before { background: #059669; }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .kpi-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--slate-500);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .kpi-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cc-green-light);
+      color: var(--cc-green-dark);
+      font-size: 16px;
+    }
+
+    .kpi-card.blue .kpi-icon { background: var(--blue-100); color: #1D4ED8; }
+    .kpi-card.amber .kpi-icon { background: var(--amber-100); color: #B45309; }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -0.6px;
+      margin-bottom: 8px;
+    }
+
+    .kpi-sub {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--slate-600);
+    }
+
+    .badge-up {
+      background: var(--cc-green-light);
+      color: var(--cc-green-dark);
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    .badge-info {
+      background: var(--slate-100);
+      color: var(--slate-700);
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    /* Chart Cards */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--slate-900);
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--slate-500);
+      margin-top: 2px;
+    }
+
+    .charts-two-col {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    .charts-two-col .card {
+      margin-bottom: 0;
+    }
+
+    .chart-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    svg text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .bar-rect {
+      transition: opacity 0.15s ease, filter 0.15s ease;
+      cursor: pointer;
+    }
+
+    .bar-rect:hover {
+      filter: brightness(1.07);
+    }
+
+    /* Legend */
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-700);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /* Horizontal Bar List */
+    .hbar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .hbar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hbar-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+    }
+
+    .hbar-name {
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .hbar-stats {
+      font-weight: 700;
+      color: var(--cc-green-dark);
+    }
+
+    .hbar-stats span {
+      color: var(--slate-500);
+      font-weight: 500;
+      font-size: 12.5px;
+      margin-left: 6px;
+    }
+
+    .hbar-track {
+      width: 100%;
+      height: 14px;
+      background: var(--slate-100);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .hbar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #008B3D, #00B14F);
+      transition: width 0.4s ease;
+    }
+
+    /* Insights Grid */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .insight-box {
+      background: var(--cc-green-soft);
+      border: 1px solid #BBF7D0;
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+
+    .insight-box h4 {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #065F46;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .insight-box p {
+      font-size: 13.5px;
+      color: var(--slate-700);
+      line-height: 1.55;
+    }
+
+    /* Data Table */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    thead th {
+      background: var(--slate-100);
+      color: var(--slate-700);
+      font-weight: 700;
+      text-align: right;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--slate-200);
+      white-space: nowrap;
+    }
+
+    thead th:first-child {
+      text-align: left;
+      border-top-left-radius: 8px;
+    }
+
+    thead th:last-child {
+      border-top-right-radius: 8px;
+    }
+
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--slate-200);
+      text-align: right;
+      color: var(--slate-700);
+      font-variant-numeric: tabular-nums;
+    }
+
+    tbody td:first-child {
+      text-align: left;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    tbody tr:hover {
+      background: #F8FAFC;
+    }
+
+    tfoot td {
+      padding: 13px 14px;
+      font-weight: 800;
+      text-align: right;
+      background: var(--cc-green-soft);
+      color: var(--slate-900);
+      border-top: 2px solid var(--cc-green);
+    }
+
+    tfoot td:first-child {
+      text-align: left;
+    }
+
+    .roas-pill {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12.5px;
+      background: var(--cc-green-light);
+      color: var(--cc-green-dark);
+    }
+
+    /* Floating Tooltip */
+    .tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: rgba(15, 23, 42, 0.96);
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      box-shadow: var(--shadow-lg);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.12s ease;
+      min-width: 195px;
+    }
+
+    .tooltip.visible {
+      opacity: 1;
+    }
+
+    .tooltip-title {
+      font-weight: 800;
+      color: #4ADE80;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .tooltip-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .tooltip-row span:last-child {
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--slate-500);
+      margin-top: 28px;
+    }
+
+    @media (max-width: 960px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .charts-two-col { grid-template-columns: 1fr; }
+      .insights-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .report-header { padding: 24px 20px; }
+      .header-main h1 { font-size: 22px; }
+    }
+
+    @media print {
+      body { background: #FFFFFF; }
+      .container { padding: 0; max-width: 100%; }
+      .header-actions, .filter-bar { display: none !important; }
+      .card, .kpi-card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="report-header">
+      <div class="header-top">
+        <div class="brand-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#FFFFFF"/>
+            <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C14.1 18 15.95 16.92 17.02 15.28L14.85 13.86C14.23 14.81 13.18 15.43 12 15.43C10.11 15.43 8.57 13.89 8.57 12C8.57 10.11 10.11 8.57 12 8.57C13.18 8.57 14.23 9.19 14.85 10.14L17.02 8.72C15.95 7.08 14.1 6 12 6Z" fill="#00B14F"/>
+          </svg>
+          <span>CỐC CỐC ADS • BÁO CÁO HIỆU QUẢ CHIẾN DỊCH</span>
+        </div>
+        <div class="header-actions">
+          <label class="btn btn-light" for="csvUploadInput">
+            <span>📂 Nạp file CSV khác</span>
+          </label>
+          <input type="file" id="csvUploadInput" accept=".csv" style="display:none" />
+          <button class="btn btn-white" onclick="window.print()">
+            <span>🖨️ In / Lưu PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <h1 id="clientTitle">Công ty TNHH Cà Phê Rang Xay Mộc Nguyên</h1>
+        <div class="header-subtitle" id="campaignTitle">Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4</div>
+      </div>
+
+      <div class="header-meta">
+        <div class="meta-item">Thương hiệu: <strong id="brandMeta">Mộc Nguyên Coffee Roasters</strong></div>
+        <div class="meta-item">Thời gian chạy: <strong id="periodMeta">01/11/2026 – 14/11/2026 (14 ngày)</strong></div>
+        <div class="meta-item">Kênh triển khai: <strong>Hệ sinh thái Quảng cáo Cốc Cốc</strong></div>
+        <div class="meta-item">Dữ liệu nguồn: <strong id="sourceMeta">coccoc_campaign_data.csv</strong></div>
+      </div>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-group" id="formatFilters">
+        <span class="filter-label">Định dạng quảng cáo:</span>
+        <button class="pill-btn active" data-format="ALL">Tất cả định dạng</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Chỉ số biểu đồ ngày:</span>
+        <button class="pill-btn active" data-metric="Luot_Click">Lượt Click</button>
+        <button class="pill-btn" data-metric="Hien_Thi">Hiển Thị</button>
+        <button class="pill-btn" data-metric="Chuyen_Doi">Chuyển Đổi</button>
+        <button class="pill-btn" data-metric="Doanh_Thu_VND">Doanh Thu</button>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Tổng Lượt Hiển Thị</span>
+          <div class="kpi-icon">👁️</div>
+        </div>
+        <div class="kpi-value" id="kpiImpressions">0</div>
+        <div class="kpi-sub">
+          <span class="badge-up" id="kpiDailyImp">0 / ngày</span>
+          <span>Độ phủ thương hiệu</span>
+        </div>
+      </div>
+
+      <div class="kpi-card blue">
+        <div class="kpi-header">
+          <span class="kpi-title">Tổng Lượt Click</span>
+          <div class="kpi-icon">🖱️</div>
+        </div>
+        <div class="kpi-value" id="kpiClicks">0</div>
+        <div class="kpi-sub">
+          <span class="badge-up" id="kpiCtr">CTR 0%</span>
+          <span id="kpiCpc">CPC 0 ₫</span>
+        </div>
+      </div>
+
+      <div class="kpi-card amber">
+        <div class="kpi-header">
+          <span class="kpi-title">Tổng Chi Phí Ads</span>
+          <div class="kpi-icon">💳</div>
+        </div>
+        <div class="kpi-value" id="kpiSpend">0 ₫</div>
+        <div class="kpi-sub">
+          <span class="badge-info" id="kpiCpa">CPA 0 ₫</span>
+          <span>Ngân sách thực chi</span>
+        </div>
+      </div>
+
+      <div class="kpi-card emerald">
+        <div class="kpi-header">
+          <span class="kpi-title">Doanh Thu & ROAS</span>
+          <div class="kpi-icon">📈</div>
+        </div>
+        <div class="kpi-value" id="kpiRevenue">0 ₫</div>
+        <div class="kpi-sub">
+          <span class="badge-up" id="kpiRoas">ROAS 0.00x</span>
+          <span id="kpiConv">0 đơn hàng</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Primary Daily Vertical Bar Chart -->
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title" id="dailyChartTitle">Biểu Đồ Cột Hiệu Quả Theo Ngày — Lượt Click</h2>
+          <p class="card-desc">Di chuột vào từng cột để xem chi tiết hiệu suất từng ngày (Đỉnh điểm ngày Siêu Sale 11/11 được tô nổi bật)</p>
+        </div>
+        <div class="chart-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#00B14F"></span> Ngày thường</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#F59E0B"></span> Ngày cao điểm (11/11)</div>
+        </div>
+      </div>
+      <div class="chart-wrapper" id="dailyBarChartContainer"></div>
+    </section>
+
+    <!-- Two Column Bar Charts -->
+    <section class="charts-two-col">
+      <!-- Grouped Vertical Bar Chart: Spend vs Revenue by Ad Format -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">So Sánh Chi Phí & Doanh Thu Theo Định Dạng</h2>
+            <p class="card-desc">Biểu đồ cột nhóm (Đơn vị: Triệu VNĐ)</p>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item"><span class="legend-dot" style="background:#3B82F6"></span> Chi phí</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#00B14F"></span> Doanh thu</div>
+          </div>
+        </div>
+        <div class="chart-wrapper" id="formatGroupedChartContainer"></div>
+      </div>
+
+      <!-- Horizontal Bar Chart: CTR & Conversions by Format -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Tỷ Lệ Nhấp Chuột (CTR %) Theo Định Dạng</h2>
+            <p class="card-desc">Xếp hạng mức độ thu hút tương tác của từng vị trí hiển thị</p>
+          </div>
+        </div>
+        <div class="hbar-list" id="ctrHorizontalBars"></div>
+      </div>
+    </section>
+
+    <!-- Key Takeaways -->
+    <section class="insights-grid">
+      <div class="insight-box">
+        <h4>🚀 Bùng nổ ngày Siêu Sale 11/11</h4>
+        <p>Lượt truy cập và đơn hàng tăng trưởng <strong>+118%</strong> so với trung bình tuần đầu, đạt đỉnh <strong>15,511 clicks</strong> và <strong>518 đơn chuyển đổi</strong> riêng trong ngày 11/11.</p>
+      </div>
+      <div class="insight-box">
+        <h4>🎯 Search & Shopping dẫn đầu ROAS</h4>
+        <p>Quảng cáo Tìm kiếm (<strong>CTR 4.17%</strong>) và Mua sắm (<strong>ROAS 4.97x</strong>) đóng góp hơn <strong>56% tổng doanh thu</strong> nhờ tiếp cận đúng nhóm khách hàng đang tìm mua cà phê rang xay.</p>
+      </div>
+      <div class="insight-box">
+        <h4>💡 Đề xuất tối ưu giai đoạn tiếp theo</h4>
+        <p>Tăng <strong>25% ngân sách</strong> cho Search Ads & Shopping Ads vào khung giờ vàng (8h–11h sáng) và duy trì New Tab Banner để giữ độ phủ cho mùa cao điểm Tết sắp tới.</p>
+      </div>
+    </section>
+
+    <!-- Detailed Summary Table -->
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">Bảng Tổng Hợp Số Liệu Theo Định Dạng Quảng Cáo</h2>
+          <p class="card-desc">Chi tiết hiệu quả đầu tư và chuyển đổi trên từng định dạng Cốc Cốc Ads</p>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table id="summaryTable">
+          <thead>
+            <tr>
+              <th>Định Dạng Quảng Cáo</th>
+              <th>Lượt Hiển Thị</th>
+              <th>Lượt Click</th>
+              <th>CTR (%)</th>
+              <th>CPC Trung Bình</th>
+              <th>Chi Phí (VNĐ)</th>
+              <th>Chuyển Đổi</th>
+              <th>Doanh Thu (VNĐ)</th>
+              <th>ROAS</th>
+            </tr>
+          </thead>
+          <tbody id="summaryTableBody"></tbody>
+          <tfoot id="summaryTableFoot"></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Báo cáo được xuất tự động từ dữ liệu chiến dịch Cốc Cốc Ads • Dành riêng cho <strong>Mộc Nguyên Coffee Roasters</strong>
+    </footer>
+  </div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+    // Embedded sample data from coccoc_campaign_data.csv
+    let campaignData = [{"Ngay":"2026-11-01","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":145000,"Luot_Click":2610,"CTR_Phan_Tram":1.8,"Chi_Phi_VND":4698000,"CPC_VND":1800,"Chuyen_Doi":58,"Doanh_Thu_VND":18560000,"ROAS":3.95},{"Ngay":"2026-11-01","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":32000,"Luot_Click":1280,"CTR_Phan_Tram":4.0,"Chi_Phi_VND":3584000,"CPC_VND":2800,"Chuyen_Doi":52,"Doanh_Thu_VND":17160000,"ROAS":4.79},{"Ngay":"2026-11-01","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":48000,"Luot_Click":1344,"CTR_Phan_Tram":2.8,"Chi_Phi_VND":3225600,"CPC_VND":2400,"Chuyen_Doi":49,"Doanh_Thu_VND":16660000,"ROAS":5.16},{"Ngay":"2026-11-02","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":152000,"Luot_Click":2736,"CTR_Phan_Tram":1.8,"Chi_Phi_VND":4924800,"CPC_VND":1800,"Chuyen_Doi":61,"Doanh_Thu_VND":19520000,"ROAS":3.96},{"Ngay":"2026-11-02","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":34500,"Luot_Click":1415,"CTR_Phan_Tram":4.1,"Chi_Phi_VND":3962000,"CPC_VND":2800,"Chuyen_Doi":56,"Doanh_Thu_VND":18480000,"ROAS":4.66},{"Ngay":"2026-11-02","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Icon Ads","Hien_Thi":95000,"Luot_Click":1425,"CTR_Phan_Tram":1.5,"Chi_Phi_VND":2280000,"CPC_VND":1600,"Chuyen_Doi":28,"Doanh_Thu_VND":8960000,"ROAS":3.93},{"Ngay":"2026-11-03","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":138000,"Luot_Click":2484,"CTR_Phan_Tram":1.8,"Chi_Phi_VND":4471200,"CPC_VND":1800,"Chuyen_Doi":54,"Doanh_Thu_VND":17280000,"ROAS":3.86},{"Ngay":"2026-11-03","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":31000,"Luot_Click":1240,"CTR_Phan_Tram":4.0,"Chi_Phi_VND":3472000,"CPC_VND":2800,"Chuyen_Doi":48,"Doanh_Thu_VND":15840000,"ROAS":4.56},{"Ngay":"2026-11-03","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Video In-feed","Hien_Thi":68000,"Luot_Click":1292,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":2842400,"CPC_VND":2200,"Chuyen_Doi":31,"Doanh_Thu_VND":10230000,"ROAS":3.6},{"Ngay":"2026-11-04","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":141000,"Luot_Click":2538,"CTR_Phan_Tram":1.8,"Chi_Phi_VND":4568400,"CPC_VND":1800,"Chuyen_Doi":55,"Doanh_Thu_VND":17600000,"ROAS":3.85},{"Ngay":"2026-11-04","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":51000,"Luot_Click":1479,"CTR_Phan_Tram":2.9,"Chi_Phi_VND":3549600,"CPC_VND":2400,"Chuyen_Doi":53,"Doanh_Thu_VND":18020000,"ROAS":5.08},{"Ngay":"2026-11-04","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Icon Ads","Hien_Thi":92000,"Luot_Click":1380,"CTR_Phan_Tram":1.5,"Chi_Phi_VND":2208000,"CPC_VND":1600,"Chuyen_Doi":26,"Doanh_Thu_VND":8320000,"ROAS":3.77},{"Ngay":"2026-11-05","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":149000,"Luot_Click":2682,"CTR_Phan_Tram":1.8,"Chi_Phi_VND":4827600,"CPC_VND":1800,"Chuyen_Doi":60,"Doanh_Thu_VND":19200000,"ROAS":3.98},{"Ngay":"2026-11-05","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":36000,"Luot_Click":1476,"CTR_Phan_Tram":4.1,"Chi_Phi_VND":4132800,"CPC_VND":2800,"Chuyen_Doi":62,"Doanh_Thu_VND":20460000,"ROAS":4.95},{"Ngay":"2026-11-05","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Video In-feed","Hien_Thi":72000,"Luot_Click":1368,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":3009600,"CPC_VND":2200,"Chuyen_Doi":34,"Doanh_Thu_VND":11220000,"ROAS":3.73},{"Ngay":"2026-11-06","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":160000,"Luot_Click":3040,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":5472000,"CPC_VND":1800,"Chuyen_Doi":68,"Doanh_Thu_VND":21760000,"ROAS":3.98},{"Ngay":"2026-11-06","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":39000,"Luot_Click":1638,"CTR_Phan_Tram":4.2,"Chi_Phi_VND":4586400,"CPC_VND":2800,"Chuyen_Doi":69,"Doanh_Thu_VND":22770000,"ROAS":4.96},{"Ngay":"2026-11-06","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":56000,"Luot_Click":1680,"CTR_Phan_Tram":3.0,"Chi_Phi_VND":4032000,"CPC_VND":2400,"Chuyen_Doi":63,"Doanh_Thu_VND":21420000,"ROAS":5.31},{"Ngay":"2026-11-07","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":172000,"Luot_Click":3268,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":5882400,"CPC_VND":1800,"Chuyen_Doi":74,"Doanh_Thu_VND":23680000,"ROAS":4.03},{"Ngay":"2026-11-07","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":62000,"Luot_Click":1860,"CTR_Phan_Tram":3.0,"Chi_Phi_VND":4464000,"CPC_VND":2400,"Chuyen_Doi":71,"Doanh_Thu_VND":24140000,"ROAS":5.41},{"Ngay":"2026-11-07","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Icon Ads","Hien_Thi":108000,"Luot_Click":1728,"CTR_Phan_Tram":1.6,"Chi_Phi_VND":2764800,"CPC_VND":1600,"Chuyen_Doi":35,"Doanh_Thu_VND":11200000,"ROAS":4.05},{"Ngay":"2026-11-08","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":180000,"Luot_Click":3420,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":6156000,"CPC_VND":1800,"Chuyen_Doi":79,"Doanh_Thu_VND":25280000,"ROAS":4.11},{"Ngay":"2026-11-08","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":42000,"Luot_Click":1764,"CTR_Phan_Tram":4.2,"Chi_Phi_VND":4939200,"CPC_VND":2800,"Chuyen_Doi":75,"Doanh_Thu_VND":24750000,"ROAS":5.01},{"Ngay":"2026-11-08","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Video In-feed","Hien_Thi":84000,"Luot_Click":1680,"CTR_Phan_Tram":2.0,"Chi_Phi_VND":3696000,"CPC_VND":2200,"Chuyen_Doi":42,"Doanh_Thu_VND":13860000,"ROAS":3.75},{"Ngay":"2026-11-09","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":195000,"Luot_Click":3900,"CTR_Phan_Tram":2.0,"Chi_Phi_VND":7020000,"CPC_VND":1800,"Chuyen_Doi":92,"Doanh_Thu_VND":29440000,"ROAS":4.19},{"Ngay":"2026-11-09","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":46000,"Luot_Click":1978,"CTR_Phan_Tram":4.3,"Chi_Phi_VND":5538400,"CPC_VND":2800,"Chuyen_Doi":86,"Doanh_Thu_VND":28380000,"ROAS":5.12},{"Ngay":"2026-11-09","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":68000,"Luot_Click":2108,"CTR_Phan_Tram":3.1,"Chi_Phi_VND":5059200,"CPC_VND":2400,"Chuyen_Doi":82,"Doanh_Thu_VND":27880000,"ROAS":5.51},{"Ngay":"2026-11-10","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":220000,"Luot_Click":4620,"CTR_Phan_Tram":2.1,"Chi_Phi_VND":8316000,"CPC_VND":1800,"Chuyen_Doi":112,"Doanh_Thu_VND":35840000,"ROAS":4.31},{"Ngay":"2026-11-10","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":52000,"Luot_Click":2288,"CTR_Phan_Tram":4.4,"Chi_Phi_VND":6406400,"CPC_VND":2800,"Chuyen_Doi":102,"Doanh_Thu_VND":33660000,"ROAS":5.25},{"Ngay":"2026-11-10","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":76000,"Luot_Click":2432,"CTR_Phan_Tram":3.2,"Chi_Phi_VND":5836800,"CPC_VND":2400,"Chuyen_Doi":96,"Doanh_Thu_VND":32640000,"ROAS":5.59},{"Ngay":"2026-11-10","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Icon Ads","Hien_Thi":125000,"Luot_Click":2125,"CTR_Phan_Tram":1.7,"Chi_Phi_VND":3400000,"CPC_VND":1600,"Chuyen_Doi":45,"Doanh_Thu_VND":14400000,"ROAS":4.24},{"Ngay":"2026-11-11","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":285000,"Luot_Click":6555,"CTR_Phan_Tram":2.3,"Chi_Phi_VND":11799000,"CPC_VND":1800,"Chuyen_Doi":168,"Doanh_Thu_VND":53760000,"ROAS":4.56},{"Ngay":"2026-11-11","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":68000,"Luot_Click":3196,"CTR_Phan_Tram":4.7,"Chi_Phi_VND":8948800,"CPC_VND":2800,"Chuyen_Doi":148,"Doanh_Thu_VND":48840000,"ROAS":5.46},{"Ngay":"2026-11-11","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":95000,"Luot_Click":3230,"CTR_Phan_Tram":3.4,"Chi_Phi_VND":7752000,"CPC_VND":2400,"Chuyen_Doi":134,"Doanh_Thu_VND":45560000,"ROAS":5.88},{"Ngay":"2026-11-11","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Video In-feed","Hien_Thi":115000,"Luot_Click":2530,"CTR_Phan_Tram":2.2,"Chi_Phi_VND":5566000,"CPC_VND":2200,"Chuyen_Doi":68,"Doanh_Thu_VND":22440000,"ROAS":4.03},{"Ngay":"2026-11-12","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":190000,"Luot_Click":3610,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":6498000,"CPC_VND":1800,"Chuyen_Doi":84,"Doanh_Thu_VND":26880000,"ROAS":4.14},{"Ngay":"2026-11-12","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":45000,"Luot_Click":1890,"CTR_Phan_Tram":4.2,"Chi_Phi_VND":5292000,"CPC_VND":2800,"Chuyen_Doi":81,"Doanh_Thu_VND":26730000,"ROAS":5.05},{"Ngay":"2026-11-12","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":64000,"Luot_Click":1920,"CTR_Phan_Tram":3.0,"Chi_Phi_VND":4608000,"CPC_VND":2400,"Chuyen_Doi":74,"Doanh_Thu_VND":25160000,"ROAS":5.46},{"Ngay":"2026-11-13","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":168000,"Luot_Click":3192,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":5745600,"CPC_VND":1800,"Chuyen_Doi":72,"Doanh_Thu_VND":23040000,"ROAS":4.01},{"Ngay":"2026-11-13","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":40000,"Luot_Click":1680,"CTR_Phan_Tram":4.2,"Chi_Phi_VND":4704000,"CPC_VND":2800,"Chuyen_Doi":70,"Doanh_Thu_VND":23100000,"ROAS":4.91},{"Ngay":"2026-11-13","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Icon Ads","Hien_Thi":102000,"Luot_Click":1632,"CTR_Phan_Tram":1.6,"Chi_Phi_VND":2611200,"CPC_VND":1600,"Chuyen_Doi":33,"Doanh_Thu_VND":10560000,"ROAS":4.04},{"Ngay":"2026-11-14","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"New Tab Banner","Hien_Thi":175000,"Luot_Click":3325,"CTR_Phan_Tram":1.9,"Chi_Phi_VND":5985000,"CPC_VND":1800,"Chuyen_Doi":76,"Doanh_Thu_VND":24320000,"ROAS":4.06},{"Ngay":"2026-11-14","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Search Ads","Hien_Thi":43000,"Luot_Click":1806,"CTR_Phan_Tram":4.2,"Chi_Phi_VND":5056800,"CPC_VND":2800,"Chuyen_Doi":77,"Doanh_Thu_VND":25410000,"ROAS":5.02},{"Ngay":"2026-11-14","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Shopping Ads","Hien_Thi":61000,"Luot_Click":1830,"CTR_Phan_Tram":3.0,"Chi_Phi_VND":4392000,"CPC_VND":2400,"Chuyen_Doi":70,"Doanh_Thu_VND":23800000,"ROAS":5.42},{"Ngay":"2026-11-14","Khach_Hang":"Mộc Nguyên Coffee Roasters","Chien_Dich":"Chiến Dịch Bùng Nổ Doanh Số 11.11 & Mùa Lễ Hội Q4","Dinh_Dang_Quang_Cao":"Video In-feed","Hien_Thi":78000,"Luot_Click":1560,"CTR_Phan_Tram":2.0,"Chi_Phi_VND":3432000,"CPC_VND":2200,"Chuyen_Doi":39,"Doanh_Thu_VND":12870000,"ROAS":3.75}];
+
+    let selectedFormat = "ALL";
+    let selectedMetric = "Luot_Click";
+
+    const metricMeta = {
+      Luot_Click: { label: "Lượt Click", unit: "clicks", short: v => formatNumber(v) },
+      Hien_Thi: { label: "Lượt Hiển Thị", unit: "lượt", short: v => formatCompact(v) },
+      Chuyen_Doi: { label: "Chuyển Đổi", unit: "đơn", short: v => formatNumber(v) },
+      Doanh_Thu_VND: { label: "Doanh Thu (VNĐ)", unit: "₫", short: v => (v / 1e6).toFixed(1) + "Tr" }
+    };
+
+    function formatNumber(n) {
+      return Math.round(n).toLocaleString("vi-VN");
+    }
+
+    function formatCompact(n) {
+      if (n >= 1e9) return (n / 1e9).toFixed(2) + " Tỷ";
+      if (n >= 1e6) return (n / 1e6).toFixed(2) + " Tr";
+      if (n >= 1e3) return (n / 1e3).toFixed(1) + " K";
+      return Math.round(n).toString();
+    }
+
+    function formatCurrency(n) {
+      return Math.round(n).toLocaleString("vi-VN") + " ₫";
+    }
+
+    function initFormatFilters() {
+      const container = document.getElementById("formatFilters");
+      const formats = [...new Set(campaignData.map(r => r.Dinh_Dang_Quang_Cao))];
+      container.innerHTML = `<span class="filter-label">Định dạng quảng cáo:</span>
+        <button class="pill-btn ${selectedFormat === 'ALL' ? 'active' : ''}" data-format="ALL">Tất cả định dạng</button>` +
+        formats.map(f => `<button class="pill-btn ${selectedFormat === f ? 'active' : ''}" data-format="${f}">${f}</button>`).join("");
+
+      container.querySelectorAll(".pill-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          selectedFormat = btn.dataset.format;
+          container.querySelectorAll(".pill-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderAll();
+        });
+      });
+    }
+
+    document.querySelectorAll("[data-metric]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedMetric = btn.dataset.metric;
+        document.querySelectorAll("[data-metric]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderDailyChart();
+      });
+    });
+
+    function getFilteredData() {
+      if (selectedFormat === "ALL") return campaignData;
+      return campaignData.filter(r => r.Dinh_Dang_Quang_Cao === selectedFormat);
+    }
+
+    function renderKPIs() {
+      const rows = getFilteredData();
+      const totalImp = rows.reduce((s, r) => s + Number(r.Hien_Thi), 0);
+      const totalClk = rows.reduce((s, r) => s + Number(r.Luot_Click), 0);
+      const totalCost = rows.reduce((s, r) => s + Number(r.Chi_Phi_VND), 0);
+      const totalConv = rows.reduce((s, r) => s + Number(r.Chuyen_Doi), 0);
+      const totalRev = rows.reduce((s, r) => s + Number(r.Doanh_Thu_VND), 0);
+      const days = new Set(rows.map(r => r.Ngay)).size || 1;
+
+      const ctr = totalImp > 0 ? ((totalClk / totalImp) * 100).toFixed(2) : "0.00";
+      const cpc = totalClk > 0 ? Math.round(totalCost / totalClk) : 0;
+      const cpa = totalConv > 0 ? Math.round(totalCost / totalConv) : 0;
+      const roas = totalCost > 0 ? (totalRev / totalCost).toFixed(2) : "0.00";
+
+      document.getElementById("kpiImpressions").textContent = formatNumber(totalImp);
+      document.getElementById("kpiDailyImp").textContent = `${formatCompact(totalImp / days)} / ngày`;
+
+      document.getElementById("kpiClicks").textContent = formatNumber(totalClk);
+      document.getElementById("kpiCtr").textContent = `CTR ${ctr}%`;
+      document.getElementById("kpiCpc").textContent = `CPC ${formatNumber(cpc)} ₫`;
+
+      document.getElementById("kpiSpend").textContent = `${(totalCost / 1e6).toFixed(2)} Tr ₫`;
+      document.getElementById("kpiCpa").textContent = `CPA ${formatNumber(cpa)} ₫`;
+
+      document.getElementById("kpiRevenue").textContent = totalRev >= 1e9
+        ? `${(totalRev / 1e9).toFixed(3)} Tỷ ₫`
+        : `${(totalRev / 1e6).toFixed(2)} Tr ₫`;
+      document.getElementById("kpiRoas").textContent = `ROAS ${roas}x`;
+      document.getElementById("kpiConv").textContent = `${formatNumber(totalConv)} đơn hàng`;
+    }
+
+    function showTooltip(evt, html) {
+      const tt = document.getElementById("tooltip");
+      tt.innerHTML = html;
+      tt.classList.add("visible");
+      const pad = 14;
+      let left = evt.clientX + pad;
+      let top = evt.clientY + pad;
+      if (left + 215 > window.innerWidth) left = evt.clientX - 215;
+      if (top + 160 > window.innerHeight) top = evt.clientY - 160;
+      tt.style.left = left + "px";
+      tt.style.top = top + "px";
+    }
+
+    function hideTooltip() {
+      document.getElementById("tooltip").classList.remove("visible");
+    }
+
+    function renderDailyChart() {
+      const rows = getFilteredData();
+      const byDate = {};
+      rows.forEach(r => {
+        if (!byDate[r.Ngay]) {
+          byDate[r.Ngay] = { Ngay: r.Ngay, Hien_Thi: 0, Luot_Click: 0, Chi_Phi_VND: 0, Chuyen_Doi: 0, Doanh_Thu_VND: 0 };
+        }
+        byDate[r.Ngay].Hien_Thi += Number(r.Hien_Thi);
+        byDate[r.Ngay].Luot_Click += Number(r.Luot_Click);
+        byDate[r.Ngay].Chi_Phi_VND += Number(r.Chi_Phi_VND);
+        byDate[r.Ngay].Chuyen_Doi += Number(r.Chuyen_Doi);
+        byDate[r.Ngay].Doanh_Thu_VND += Number(r.Doanh_Thu_VND);
+      });
+
+      const days = Object.values(byDate).sort((a, b) => a.Ngay.localeCompare(b.Ngay));
+      const meta = metricMeta[selectedMetric];
+      document.getElementById("dailyChartTitle").textContent = `Biểu Đồ Cột Hiệu Quả Theo Ngày — ${meta.label}`;
+
+      const width = 1120;
+      const height = 330;
+      const margin = { top: 34, right: 24, bottom: 48, left: 66 };
+      const chartW = width - margin.left - margin.right;
+      const chartH = height - margin.top - margin.bottom;
+
+      const maxVal = Math.max(...days.map(d => d[selectedMetric]), 1) * 1.14;
+      const ticks = 5;
+
+      let svg = `<svg viewBox="0 0 ${width} ${height}" width="100%" style="min-width:760px; display:block;">
+        <defs>
+          <linearGradient id="ccGreenGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#00C853"/>
+            <stop offset="100%" stop-color="#008B3D"/>
+          </linearGradient>
+          <linearGradient id="peakAmberGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FBBF24"/>
+            <stop offset="100%" stop-color="#D97706"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(${margin.left},${margin.top})">`;
+
+      // Grid lines & Y labels
+      for (let i = 0; i <= ticks; i++) {
+        const val = (maxVal / ticks) * i;
+        const y = chartH - (chartH / ticks) * i;
+        svg += `<line x1="0" y1="${y}" x2="${chartW}" y2="${y}" stroke="#E2E8F0" stroke-dasharray="${i === 0 ? '0' : '4 4'}" />`;
+        svg += `<text x="-10" y="${y + 4}" text-anchor="end" font-size="11.5" fill="#64748B" font-weight="600">${meta.short(val)}</text>`;
+      }
+
+      const slotW = chartW / days.length;
+      const barW = Math.min(42, slotW * 0.62);
+
+      days.forEach((d, idx) => {
+        const val = d[selectedMetric];
+        const barH = (val / maxVal) * chartH;
+        const x = idx * slotW + (slotW - barW) / 2;
+        const y = chartH - barH;
+        const isPeak = d.Ngay.endsWith("-11");
+        const fill = isPeak ? "url(#peakAmberGrad)" : "url(#ccGreenGrad)";
+        const dateShort = d.Ngay.slice(8, 10) + "/" + d.Ngay.slice(5, 7);
+
+        svg += `<rect class="bar-rect" x="${x}" y="${y}" width="${barW}" height="${barH}" rx="6" fill="${fill}"
+          data-idx="${idx}" />`;
+
+        // Value label above bar
+        svg += `<text x="${x + barW / 2}" y="${y - 7}" text-anchor="middle" font-size="11" font-weight="700" fill="${isPeak ? '#B45309' : '#1E293B'}">${meta.short(val)}</text>`;
+
+        // Date label on X-axis
+        svg += `<text x="${x + barW / 2}" y="${chartH + 22}" text-anchor="middle" font-size="12" font-weight="${isPeak ? '800' : '600'}" fill="${isPeak ? '#B45309' : '#475569'}">${dateShort}</text>`;
+        if (isPeak) {
+          svg += `<text x="${x + barW / 2}" y="${chartH + 37}" text-anchor="middle" font-size="10" font-weight="800" fill="#D97706">11.11</text>`;
+        }
+      });
+
+      svg += `</g></svg>`;
+      const container = document.getElementById("dailyBarChartContainer");
+      container.innerHTML = svg;
+
+      container.querySelectorAll(".bar-rect").forEach(rect => {
+        const d = days[Number(rect.dataset.idx)];
+        const ctr = d.Hien_Thi > 0 ? ((d.Luot_Click / d.Hien_Thi) * 100).toFixed(2) : "0.00";
+        const roas = d.Chi_Phi_VND > 0 ? (d.Doanh_Thu_VND / d.Chi_Phi_VND).toFixed(2) : "0.00";
+        const html = `
+          <div class="tooltip-title">Ngày ${d.Ngay.split("-").reverse().join("/")}</div>
+          <div class="tooltip-row"><span>Hiển thị:</span><span>${formatNumber(d.Hien_Thi)}</span></div>
+          <div class="tooltip-row"><span>Lượt click:</span><span>${formatNumber(d.Luot_Click)} (${ctr}%)</span></div>
+          <div class="tooltip-row"><span>Chi phí:</span><span>${formatCurrency(d.Chi_Phi_VND)}</span></div>
+          <div class="tooltip-row"><span>Chuyển đổi:</span><span>${formatNumber(d.Chuyen_Doi)} đơn</span></div>
+          <div class="tooltip-row"><span>Doanh thu:</span><span>${formatCurrency(d.Doanh_Thu_VND)}</span></div>
+          <div class="tooltip-row"><span>ROAS:</span><span>${roas}x</span></div>
+        `;
+        rect.addEventListener("mousemove", e => showTooltip(e, html));
+        rect.addEventListener("mouseleave", hideTooltip);
+      });
+    }
+
+    function aggregateByFormat() {
+      const map = {};
+      campaignData.forEach(r => {
+        const f = r.Dinh_Dang_Quang_Cao;
+        if (!map[f]) {
+          map[f] = { format: f, Hien_Thi: 0, Luot_Click: 0, Chi_Phi_VND: 0, Chuyen_Doi: 0, Doanh_Thu_VND: 0 };
+        }
+        map[f].Hien_Thi += Number(r.Hien_Thi);
+        map[f].Luot_Click += Number(r.Luot_Click);
+        map[f].Chi_Phi_VND += Number(r.Chi_Phi_VND);
+        map[f].Chuyen_Doi += Number(r.Chuyen_Doi);
+        map[f].Doanh_Thu_VND += Number(r.Doanh_Thu_VND);
+      });
+      return Object.values(map).sort((a, b) => b.Doanh_Thu_VND - a.Doanh_Thu_VND);
+    }
+
+    function renderGroupedFormatChart() {
+      const formats = aggregateByFormat();
+      const width = 620;
+      const height = 310;
+      const margin = { top: 32, right: 20, bottom: 48, left: 56 };
+      const chartW = width - margin.left - margin.right;
+      const chartH = height - margin.top - margin.bottom;
+
+      const maxMil = Math.max(...formats.map(f => Math.max(f.Chi_Phi_VND, f.Doanh_Thu_VND) / 1e6), 1) * 1.18;
+      const ticks = 5;
+
+      let svg = `<svg viewBox="0 0 ${width} ${height}" width="100%" style="min-width:480px; display:block;">
+        <g transform="translate(${margin.left},${margin.top})">`;
+
+      for (let i = 0; i <= ticks; i++) {
+        const val = (maxMil / ticks) * i;
+        const y = chartH - (chartH / ticks) * i;
+        svg += `<line x1="0" y1="${y}" x2="${chartW}" y2="${y}" stroke="#E2E8F0" stroke-dasharray="${i === 0 ? '0' : '4 4'}" />`;
+        svg += `<text x="-8" y="${y + 4}" text-anchor="end" font-size="11" fill="#64748B" font-weight="600">${Math.round(val)}Tr</text>`;
+      }
+
+      const groupW = chartW / formats.length;
+      const barW = Math.min(28, groupW * 0.32);
+      const gap = 5;
+
+      formats.forEach((f, idx) => {
+        const costMil = f.Chi_Phi_VND / 1e6;
+        const revMil = f.Doanh_Thu_VND / 1e6;
+        const costH = (costMil / maxMil) * chartH;
+        const revH = (revMil / maxMil) * chartH;
+
+        const centerX = idx * groupW + groupW / 2;
+        const xCost = centerX - barW - gap / 2;
+        const xRev = centerX + gap / 2;
+
+        svg += `<rect class="bar-rect grouped-bar" data-idx="${idx}" x="${xCost}" y="${chartH - costH}" width="${barW}" height="${costH}" rx="5" fill="#3B82F6" />`;
+        svg += `<text x="${xCost + barW / 2}" y="${chartH - costH - 6}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1D4ED8">${costMil.toFixed(0)}Tr</text>`;
+
+        svg += `<rect class="bar-rect grouped-bar" data-idx="${idx}" x="${xRev}" y="${chartH - revH}" width="${barW}" height="${revH}" rx="5" fill="#00B14F" />`;
+        svg += `<text x="${xRev + barW / 2}" y="${chartH - revH - 6}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#008B3D">${revMil.toFixed(0)}Tr</text>`;
+
+        svg += `<text x="${centerX}" y="${chartH + 22}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#334155">${f.format}</text>`;
+      });
+
+      svg += `</g></svg>`;
+      const container = document.getElementById("formatGroupedChartContainer");
+      container.innerHTML = svg;
+
+      container.querySelectorAll(".grouped-bar").forEach(rect => {
+        const f = formats[Number(rect.dataset.idx)];
+        const roas = (f.Doanh_Thu_VND / f.Chi_Phi_VND).toFixed(2);
+        const html = `
+          <div class="tooltip-title">${f.format}</div>
+          <div class="tooltip-row"><span>Chi phí:</span><span>${formatCurrency(f.Chi_Phi_VND)}</span></div>
+          <div class="tooltip-row"><span>Doanh thu:</span><span>${formatCurrency(f.Doanh_Thu_VND)}</span></div>
+          <div class="tooltip-row"><span>ROAS:</span><span>${roas}x</span></div>
+          <div class="tooltip-row"><span>Đơn hàng:</span><span>${formatNumber(f.Chuyen_Doi)} đơn</span></div>
+        `;
+        rect.addEventListener("mousemove", e => showTooltip(e, html));
+        rect.addEventListener("mouseleave", hideTooltip);
+      });
+    }
+
+    function renderCtrHorizontalBars() {
+      const formats = aggregateByFormat().map(f => ({
+        ...f,
+        ctr: f.Hien_Thi > 0 ? (f.Luot_Click / f.Hien_Thi) * 100 : 0
+      })).sort((a, b) => b.ctr - a.ctr);
+
+      const maxCtr = Math.max(...formats.map(f => f.ctr), 1);
+      const container = document.getElementById("ctrHorizontalBars");
+
+      container.innerHTML = formats.map(f => {
+        const pct = Math.min(100, (f.ctr / maxCtr) * 100).toFixed(1);
+        return `
+          <div class="hbar-item">
+            <div class="hbar-meta">
+              <span class="hbar-name">${f.format}</span>
+              <span class="hbar-stats">${f.ctr.toFixed(2)}% CTR <span>(${formatNumber(f.Luot_Click)} clicks • ${formatNumber(f.Chuyen_Doi)} đơn)</span></span>
+            </div>
+            <div class="hbar-track">
+              <div class="hbar-fill" style="width:${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderSummaryTable() {
+      const formats = aggregateByFormat();
+      const tbody = document.getElementById("summaryTableBody");
+      const tfoot = document.getElementById("summaryTableFoot");
+
+      let sumImp = 0, sumClk = 0, sumCost = 0, sumConv = 0, sumRev = 0;
+
+      tbody.innerHTML = formats.map(f => {
+        sumImp += f.Hien_Thi;
+        sumClk += f.Luot_Click;
+        sumCost += f.Chi_Phi_VND;
+        sumConv += f.Chuyen_Doi;
+        sumRev += f.Doanh_Thu_VND;
+
+        const ctr = ((f.Luot_Click / f.Hien_Thi) * 100).toFixed(2);
+        const cpc = Math.round(f.Chi_Phi_VND / f.Luot_Click);
+        const roas = (f.Doanh_Thu_VND / f.Chi_Phi_VND).toFixed(2);
+
+        return `
+          <tr>
+            <td>${f.format}</td>
+            <td>${formatNumber(f.Hien_Thi)}</td>
+            <td>${formatNumber(f.Luot_Click)}</td>
+            <td>${ctr}%</td>
+            <td>${formatNumber(cpc)} ₫</td>
+            <td>${formatNumber(f.Chi_Phi_VND)} ₫</td>
+            <td>${formatNumber(f.Chuyen_Doi)}</td>
+            <td><strong>${formatNumber(f.Doanh_Thu_VND)} ₫</strong></td>
+            <td><span class="roas-pill">${roas}x</span></td>
+          </tr>
+        `;
+      }).join("");
+
+      const totCtr = sumImp > 0 ? ((sumClk / sumImp) * 100).toFixed(2) : "0.00";
+      const totCpc = sumClk > 0 ? Math.round(sumCost / sumClk) : 0;
+      const totRoas = sumCost > 0 ? (sumRev / sumCost).toFixed(2) : "0.00";
+
+      tfoot.innerHTML = `
+        <tr>
+          <td>TỔNG CỘNG CHIẾN DỊCH</td>
+          <td>${formatNumber(sumImp)}</td>
+          <td>${formatNumber(sumClk)}</td>
+          <td>${totCtr}%</td>
+          <td>${formatNumber(totCpc)} ₫</td>
+          <td>${formatNumber(sumCost)} ₫</td>
+          <td>${formatNumber(sumConv)}</td>
+          <td>${formatNumber(sumRev)} ₫</td>
+          <td><span class="roas-pill">${totRoas}x</span></td>
+        </tr>
+      `;
+    }
+
+    function renderAll() {
+      renderKPIs();
+      renderDailyChart();
+      renderGroupedFormatChart();
+      renderCtrHorizontalBars();
+      renderSummaryTable();
+    }
+
+    // Optional CSV uploader so user can load new data dynamically
+    document.getElementById("csvUploadInput").addEventListener("change", function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const text = evt.target.result.replace(/^\uFEFF/, "");
+        const lines = text.trim().split(/\r?\n/);
+        if (lines.length < 2) return;
+        const headers = lines[0].split(",").map(h => h.trim());
+        const parsed = lines.slice(1).map(line => {
+          const cols = line.split(",");
+          const obj = {};
+          headers.forEach((h, i) => {
+            const val = (cols[i] || "").trim();
+            obj[h] = isNaN(val) || val === "" || h === "Ngay" ? val : Number(val);
+          });
+          return obj;
+        });
+        if (parsed.length > 0 && parsed[0].Ngay) {
+          campaignData = parsed;
+          selectedFormat = "ALL";
+          document.getElementById("sourceMeta").textContent = file.name;
+          if (parsed[0].Khach_Hang) document.getElementById("brandMeta").textContent = parsed[0].Khach_Hang;
+          if (parsed[0].Chien_Dich) document.getElementById("campaignTitle").textContent = parsed[0].Chien_Dich;
+          initFormatFilters();
+          renderAll();
+        }
+      };
+      reader.readAsText(file, "UTF-8");
+    });
+
+    initFormatFilters();
+    renderAll();
+  </script>
+</body>
+</html>
